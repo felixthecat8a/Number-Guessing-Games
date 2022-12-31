@@ -1,7 +1,3 @@
-#to run: elixir number_guessing_game.ex
-#to use Elixir in PowerShell: iex.bat
-#to compile in Elixir terminal: c "number_guessing_game.ex"
-
 defmodule NumberGuessingGame do
   def guess() do
      random = Enum.random(1..100)
