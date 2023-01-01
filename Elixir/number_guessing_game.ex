@@ -15,8 +15,7 @@ defmodule NumberGuessingGame do
       number > answer ->
         too_high(answer,attempts)
       number == answer ->
-        IO.puts("You guessed it right!!")
-        IO.puts("It only took you #{attempts} attempts. :)")
+        win(attempts)
     end
   end
 
@@ -34,6 +33,11 @@ defmodule NumberGuessingGame do
     {new_guess, _} = Integer.parse(new_guess)
     a = a + 1
     guess_while(answer,new_guess,a)
+  end
+  
+  def win(attempts) do
+    IO.puts("You guessed it right!!")
+    IO.puts("It only took you #{attempts} attempts. :)")
   end
 
 end
