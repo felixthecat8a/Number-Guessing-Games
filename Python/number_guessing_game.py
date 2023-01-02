@@ -1,3 +1,4 @@
+#using Python
 import random
 print("Guess the number between 1 and 100.")
 n = random.randrange(1,100)
