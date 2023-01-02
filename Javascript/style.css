@@ -16,11 +16,24 @@ header h1 {
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    padding: 2px;
+    width: 150px;
+    padding: 6px;
 }
 #game input:focus {
     outline: 3px solid seagreen;
     background-color: honeydew;
+}
+#game button {
+    background-color: darkcyan;
+    color: azure;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5px;
 }
 #game a {
     color:azure;
