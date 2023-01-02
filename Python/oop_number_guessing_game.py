@@ -1,3 +1,4 @@
+#using Python
 import random
 number = int(random.randrange(1,100))
 
