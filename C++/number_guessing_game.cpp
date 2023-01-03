@@ -14,8 +14,11 @@ int main()
 	srand(time(0));
 	answer = (rand() % MAX) + MIN; 
 	
-    	cout << "Guess the number between 1 and 100." << endl;
-	cout << "Guess the number: ";
+	char startGame[] = "Guess the number between 1 and 100.\n";
+	char firstGuess[] = "Guess the number: ";
+
+    	cout << startGame << endl;
+	cout << firstGuess;
 
 	do {
 		cin >> guess;
