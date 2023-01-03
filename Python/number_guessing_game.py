@@ -9,18 +9,23 @@ number = random.randrange(1,100)
 first_try = "Guess the number: "
 guess = int(input(first_try))
 
+new_try = "Try again: "
+too_low = "Your number is too low."
+too_high = "Your number is too high."
+
 attempts = 0
 
 while number!= guess:
     attempts = attempts + 1
     if guess < number:
-        print("Your number is too low.")
-        guess = int(input("Try again: "))
+        print(too_low)
+        guess = int(input(new_try))
     elif guess > number:
-        print("Your number is too high.")
-        guess = int(input("Try again: "))
+        print(too_high)
+        guess = int(input(new_try))
     else:
       break
 
-print("You guessed it right!!")
+win_game = "You guessed it right!!"
+print(win_game)
 print("It only took you ",attempts," attempts. :)")
