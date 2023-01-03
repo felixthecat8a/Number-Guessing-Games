@@ -1,18 +1,26 @@
 #using Python
 import random
-print("Guess the number between 1 and 100.")
-n = random.randrange(1,100)
-guess = int(input("Guess the number: "))
+
+start_game = "Guess the number between 1 and 100."
+print(start_game)
+
+number = random.randrange(1,100)
+
+first_try = "Guess the number: "
+guess = int(input(first_try))
+
 attempts = 0
-while n!= guess:
+
+while number!= guess:
     attempts = attempts + 1
-    if guess < n:
+    if guess < number:
         print("Your number is too low.")
         guess = int(input("Try again: "))
-    elif guess > n:
+    elif guess > number:
         print("Your number is too high.")
         guess = int(input("Try again: "))
     else:
       break
+
 print("You guessed it right!!")
 print("It only took you ",attempts," attempts. :)")
