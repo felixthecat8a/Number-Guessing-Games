@@ -13,7 +13,7 @@ int main()
 	srand(time(0));
 	answer = (rand() % MAX) + MIN; 
 	
-    printf("Guess the number between 1 and 100.\n");
+    	printf("Guess the number between 1 and 100.\n");
 	printf("Guess the number: ");
 
 	do {
@@ -25,7 +25,7 @@ int main()
 		else if (guess < answer)
 			printf("Your number is too low.\nTry Again: ");
 		else
-            printf("You guessed it right!!\nIt only took you %d attempts. :)\n",attempts);
+            		printf("You guessed it right!!\nIt only took you %d attempts. :)\n",attempts);
 	} while (guess != answer);
 
 	return 0;
