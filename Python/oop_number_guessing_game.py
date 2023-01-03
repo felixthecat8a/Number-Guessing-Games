@@ -6,24 +6,30 @@ class Guess:
     def __init__(self,number):
         self.answer = int(number)
         self.attempts = 1
+        self.start_game = "Guess the number between 1 and 100."
+        self.first_try = "Guess the number: "
+        self.wrong = "Try again: "
+        self.low = "Your number is too low."
+        self.high = "Your number is too high."
+        self.right = "You guessed it right!!"
 
     def too_low(self):
-        print("Your number is too low.")
-        guess = int(input("Try again: "))
+        print(self.low)
+        guess = int(input(self.wrong))
         return guess
 
     def too_high(self):
-        print("Your number is too high.")
-        guess = int(input("Try again: "))
+        print(self.high)
+        guess = int(input(self.wrong))
         return guess
 
     def win(self):
-        print("You guessed it right!!")
+        print(self.right)
         print("It only took you ",self.attempts," attempts. :)")
 
     def game(self):
-        print("Guess the number between 1 and 100.")
-        self.guess = int(input("Guess the number: "))
+        print(self.start_game)
+        self.guess = int(input(self.first_try))
         while self.answer!= self.guess:
             self.attempts = self.attempts + 1
             if self.guess < self.answer: 
