@@ -13,8 +13,8 @@ int main()
 	srand(time(0));
 	answer = (rand() % MAX) + MIN; 
 	
-	char startGame[] = "Guess the number between 1 and 100.\n";
-	char firstGuess[] = "Guess the number: ";
+	const char startGame[] = "Guess the number between 1 and 100.\n";
+	const char firstGuess[] = "Guess the number: ";
 	
     	printf(startGame);
 	printf(firstGuess);
