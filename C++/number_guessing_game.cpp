@@ -14,7 +14,7 @@ int main()
 	srand(time(0));
 	answer = (rand() % MAX) + MIN; 
 	
-    cout << "Guess the number between 1 and 100.\n";
+    cout << "Guess the number between 1 and 100." << endl;
 	cout << "Guess the number: ";
 
 	do {
@@ -26,7 +26,7 @@ int main()
 		else if (guess < answer)
 			cout << "Your number is too low.\nTry Again: ";
 		else
-            cout << "You guessed it right!!\nIt only took you " << attempts << " attempts. :)\n";
+            cout << "You guessed it right!!\nIt only took you " << attempts << " attempts. :)" << endl;
 	} while (guess != answer);
 
 	system("pause>0");
