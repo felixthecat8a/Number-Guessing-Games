@@ -26,7 +26,7 @@ int main()
 		else if (guess < answer)
 			cout << "Your number is too low.\nTry Again: ";
 		else
-            cout << "You guessed it right!!\nIt only took you " << attempts << " attempts. :)" << endl;
+            		cout << "You guessed it right!!\nIt only took you " << attempts << " attempts. :)" << endl;
 	} while (guess != answer);
 
 	system("pause>0");
