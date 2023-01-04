@@ -13,7 +13,7 @@ new_try = "Try again: "
 too_low = "Your number is too low."
 too_high = "Your number is too high."
 
-attempts = 0
+attempts = 1
 
 while number!= guess:
     attempts = attempts + 1
