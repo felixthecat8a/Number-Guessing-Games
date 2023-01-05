@@ -53,10 +53,8 @@ class NumberGuessingGame {
 		}
 
 		void win() {
-		void win() {
 			if (attempts == 1) {
-				numAttempts = "1 attempt. :)\n";
-				cout << correct << "It only took you " << numAttempts;
+				cout << correct << "It only took you 1 attempt. :)\n";
 			} else {
 				cout << correct << "It only took you " << attempts << " attempts. :)\n";
 			}
