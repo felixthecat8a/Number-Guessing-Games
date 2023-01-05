@@ -24,7 +24,7 @@ class Guess:
         return guess
 
     def win(self):
-        print("You guessed it right!!")
+        print(self.correct)
         if self.attempts == 1:
             print("It only took you ",self.attempts," try. :)")
         else:
