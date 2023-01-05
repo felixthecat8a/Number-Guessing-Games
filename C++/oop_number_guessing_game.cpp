@@ -53,6 +53,7 @@ class NumberGuessingGame {
 		}
 
 		void win() {
+			
 			cout << correct << "It only took you " << attempts << " attempts. :)\n";
 		}
 };
