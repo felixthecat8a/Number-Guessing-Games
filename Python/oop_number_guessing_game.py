@@ -1,7 +1,5 @@
 #using Python
 import random
-number = int(random.randrange(1,100))
-#print("the number is {:d}" .format(number)) #for debugging
 
 class Guess:
     def __init__(self,number):
@@ -13,6 +11,10 @@ class Guess:
         self.low = "Your number is too low."
         self.high = "Your number is too high."
         self.correct = "You guessed it right!!"
+        
+    def start(self):
+        self.answer = int(random.randrange(1,100))
+        #print("the number is {:d}" .format(self.answer)) #for debugging
 
     def too_low(self):
         print(self.low)
@@ -35,6 +37,7 @@ class Guess:
             return" tries"
 
     def game(self):
+        self.start()
         print(self.start_game)
         self.guess = int(input(self.first_try))
         while self.answer!= self.guess:
@@ -46,5 +49,17 @@ class Guess:
             else: break
         self.win()
 
-play = Guess(number)
-play.game()
+if __name__ == '__main__':
+    while(True):
+        play = Guess()
+        play.game()
+        prompt_message = "Do you want to play again? (y/n): "
+        yes_or_no = input(prompt_message).lower()
+        if yes_or_no == "yes" or yes_or_no == "y":
+            continue
+        elif yes_or_no == "no" or yes_or_no == "n":
+            print("Goodbye :)")
+            break
+        else: 
+            print('Invalid Response - Exiting Game')
+            break
