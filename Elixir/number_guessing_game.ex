@@ -2,6 +2,7 @@
 defmodule NumberGuessingGame do
   def guess() do
      random = Enum.random(1..100)
+     #IO.puts("Answer: #{random}") #for debugging
      IO.puts("Guess a number between 1 and 100.")
      first_guess = IO.gets("Guess the number: ")
      {first_guess, _} = Integer.parse(first_guess)
@@ -38,7 +39,14 @@ defmodule NumberGuessingGame do
   
   def win(attempts) do
     IO.puts("You guessed it right!!")
-    IO.puts("It only took you #{attempts} attempts. :)")
+    IO.puts("It only took you #{attempts} #{tries(attempts)}. :)")
+  end
+
+  def tries(attempts) do
+    case 1 do
+      ^attempts -> "try"
+      _ -> "tries"
+    end
   end
 
 end
