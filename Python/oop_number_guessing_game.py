@@ -50,7 +50,8 @@ class Guess:
         self.win()
 
 if __name__ == '__main__':
-    while(True):
+    active = True
+    while(active):
         play = Guess()
         play.game()
         prompt_message = "Do you want to play again? (y/n): "
