@@ -26,7 +26,8 @@ class NumberGuessingGame {
 
 		void createAnswer() {
 			srand(time(0));
-			randNum = (rand() % MAX) + MIN; 
+			randNum = (rand() % MAX) + MIN;
+			//cout << "Answer: " << randNum << endl; //for debugging
 		}
 
 		void playGame() {
@@ -53,10 +54,11 @@ class NumberGuessingGame {
 		}
 
 		void win() {
+			string tries = (attempts == 1) ? " attempt. :)" : " attempts. :)";
 			if (attempts == 1) {
-				cout << correct << "It only took you 1 attempt. :)\n";
+				cout << correct << "It only took you " << attempts << tries << endl;
 			} else {
-				cout << correct << "It only took you " << attempts << " attempts. :)\n";
+				cout << correct << "It only took you " << attempts << tries << endl;
 			}
 		}
 };
