@@ -5,6 +5,7 @@ start_game = "Guess the number between 1 and 100."
 print(start_game)
 
 number = random.randrange(1,100)
+#print("the number is {:d}" .format(number)) #for debugging
 
 first_try = "Guess the number: "
 guess = int(input(first_try))
@@ -26,6 +27,11 @@ while number!= guess:
     else:
       break
 
+if attempts == 1:
+    tries = "attempt"
+else: 
+    tries = "attempts"
+
 win_game = "You guessed it right!!"
 print(win_game)
-print("It only took you ",attempts," attempts. :)")
+print("It only took you {:d} {}. :)".format(attempts,tries))
