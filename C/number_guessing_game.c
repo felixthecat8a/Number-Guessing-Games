@@ -11,7 +11,8 @@ int main()
 	int attempts = 0;
 	
 	srand(time(0));
-	answer = (rand() % MAX) + MIN; 
+	answer = (rand() % MAX) + MIN;
+	//printf("Answer: %d\n", answer); //for debugging
 	
 	const char startGame[] = "Guess the number between 1 and 100.\n";
 	const char firstGuess[] = "Guess the number: ";
@@ -27,9 +28,14 @@ int main()
 			printf("Your number is too high.\nTry Again: ");
 		else if (guess < answer)
 			printf("Your number is too low.\nTry Again: ");
-		else
-            		printf("You guessed it right!!\nIt only took you %d attempts. :)\n",attempts);
+            
 	} while (guess != answer);
+
+	if (attempts == 1) {
+		printf("You guessed it right!!\nIt only took you %d attempt. :)\n",attempts);
+	}else{
+		printf("You guessed it right!!\nIt only took you %d attempts. :)\n",attempts);
+	}
 
 	return 0;
 }
