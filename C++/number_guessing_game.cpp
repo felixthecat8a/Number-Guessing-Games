@@ -13,7 +13,8 @@ int main()
 	int attempts = 0;
 	
 	srand(time(0));
-	answer = (rand() % MAX) + MIN; 
+	answer = (rand() % MAX) + MIN;
+	//cout << "Answer: " << answer << endl; //for debugging
 	
 	const char startGame[] = "Guess the number between 1 and 100.\n";
 	const char firstGuess[] = "Guess the number: ";
@@ -33,9 +34,12 @@ int main()
 			cout << tooLow;
 		else if (guess > answer)
 			cout << tooHigh;
-		else
-            		cout << correct <<"It only took you " << attempts << " attempts. :)" << endl;
+		
 	} while (guess != answer);
+	
+	string tries = (attempts == 1) ? " attempt. :)" : " attempts. :)";
 
+	cout << correct << "It only took you " << attempts << tries << endl;
+	
 	system("pause>0");
 }
