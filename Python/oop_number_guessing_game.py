@@ -1,6 +1,7 @@
 #using Python
 import random
 number = int(random.randrange(1,100))
+#print("the number is {:d}" .format(number)) #for debugging
 
 class Guess:
     def __init__(self,number):
@@ -24,11 +25,14 @@ class Guess:
         return guess
 
     def win(self):
-        print(self.correct)
+        print("You guessed it right!!")
+        print(f"It only took you {self.attempts} {self.tries()}. :)")
+
+    def tries(self):
         if self.attempts == 1:
-            print("It only took you ",self.attempts," try. :)")
+            return " try"
         else:
-            print("It only took you ",self.attempts," tries. :)")
+            return" tries"
 
     def game(self):
         print(self.start_game)
