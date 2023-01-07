@@ -48,21 +48,29 @@ class Guess:
             return"tries"
 
     def game(self):
-        while(True):
-            self.start()
-            self.check()
+        self.start()
+        self.check()
+        self.play_again()
+
+    def play_again(self):
+        i = 0
+        while(i < 3):
             prompt_message = "Do you want to play again? (y/n): "
             yes_or_no = input(prompt_message).lower()
             if yes_or_no == "yes" or yes_or_no == "y":
                 self.attempts = 1
-                continue
+                self.game()
             elif yes_or_no == "no" or yes_or_no == "n":
                 print("Goodbye :)")
+                i = 0
                 break
             else: 
-                print('Invalid Response - Exiting Game')
-                break
-
+                print('Invalid Response - Enter y or n.')
+                i += 1
+                continue
+        if i > 0:
+            print("Too Many Invalid Responses - Exiting Program")
+                
 if __name__ == '__main__':
     play = Guess()
     play.game()
