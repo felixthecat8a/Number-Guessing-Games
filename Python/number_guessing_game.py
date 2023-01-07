@@ -24,8 +24,6 @@ while number!= guess:
     elif guess > number:
         print(too_high)
         guess = int(input(new_try))
-    else:
-      break
 
 if attempts == 1:
     tries = "attempt"
