@@ -24,7 +24,6 @@ class Guess:
                 self.guess = self.too_low()
             elif self.guess > self.answer: 
                 self.guess = self.too_high()
-            else: break
         self.win()
 
     def too_low(self):
