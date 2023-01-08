@@ -18,6 +18,7 @@ defmodule NumberGuessingGame do
         too_high(answer,attempts)
       number == answer ->
         win(attempts)
+        play_again()
     end
   end
 
@@ -46,6 +47,18 @@ defmodule NumberGuessingGame do
     case 1 do
       ^attempts -> "try"
       _ -> "tries"
+    end
+  end
+  
+    def play_again() do
+    yes_or_no = IO.gets("Do you want to play again? (y/n): ")
+    cond do
+      yes_or_no == "y\n" ->
+        guess()
+      yes_or_no == "n\n" ->
+        IO.puts("Goodbye :)")
+      true ->
+        IO.puts("Invalid Response - Exiting Game")
     end
   end
 
