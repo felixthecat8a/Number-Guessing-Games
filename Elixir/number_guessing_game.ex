@@ -7,7 +7,8 @@ defmodule NumberGuessingGame do
       IO.puts("Answer: #{random}")
     end
     IO.puts("Guess a number between 1 and 100.")
-    {first_guess, _} = IO.gets("Guess the number: ") |> Integer.parse()
+    prompt_guess = "Guess the number: "
+    {first_guess, _} = IO.gets(prompt_guess) |> Integer.parse()
     attempts = 1
     guess_while(random,first_guess,attempts)
   end
