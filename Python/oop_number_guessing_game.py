@@ -12,8 +12,10 @@ class Guess:
         self.correct = "You guessed it right!!"
 
     def start(self):
+        start_game = "Guess the number between 1 and 100."
+        print(start_game)
         self.answer = int(random.randrange(1,100))
-        print("the number is {:d}" .format(self.answer)) #for debugging
+        #print("the number is {:d}" .format(self.answer)) #for debugging
         print(self.start_game)
         self.guess = int(input(self.first_try))
 
