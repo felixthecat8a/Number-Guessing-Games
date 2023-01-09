@@ -9,10 +9,13 @@ int main()
 	const int MAX = 100;
 	int answer, guess;
 	int attempts = 0;
+	int debug = 0; //set 1 to debug
 	
 	srand(time(0));
 	answer = (rand() % MAX) + MIN;
-	//printf("Answer: %d\n", answer); //for debugging
+	if (debug) {
+		printf("Answer: %d\n", answer);
+	}
 	
 	const char startGame[] = "Guess the number between 1 and 100.\n";
 	const char firstGuess[] = "Guess the number: ";
