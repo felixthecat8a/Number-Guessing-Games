@@ -11,10 +11,13 @@ int main()
 	const int MAX = 100;
 	int answer, guess;
 	int attempts = 0;
+	bool debug = true; //set true to debug
 	
 	srand(time(0));
 	answer = (rand() % MAX) + MIN;
-	//cout << "Answer: " << answer << endl; //for debugging
+	if (debug) {
+		cout << "Answer: " << answer << endl;
+	}
 	
 	const char startGame[] = "Guess the number between 1 and 100.\n";
 	const char firstGuess[] = "Guess the number: ";
