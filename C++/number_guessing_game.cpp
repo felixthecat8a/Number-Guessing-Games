@@ -11,7 +11,7 @@ int main()
 	const int MAX = 100;
 	int answer, guess;
 	int attempts = 0;
-	bool debug = true; //set true to debug
+	bool debug = false; //set true to debug
 	
 	srand(time(0));
 	answer = (rand() % MAX) + MIN;
