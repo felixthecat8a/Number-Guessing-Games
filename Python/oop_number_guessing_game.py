@@ -1,5 +1,6 @@
 #using Python
 import random
+debug = False #set True to debug
 
 class Guess:
     def __init__(self):
@@ -15,7 +16,8 @@ class Guess:
         start_game = "Guess the number between 1 and 100."
         print(start_game)
         self.answer = int(random.randrange(1,100))
-        #print("the number is {:d}" .format(self.answer)) #for debugging
+        if debug:
+            print("the number is {:d}" .format(self.answer))
         print(self.start_game)
         self.guess = int(input(self.first_try))
 
