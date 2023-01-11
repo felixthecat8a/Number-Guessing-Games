@@ -1,6 +1,6 @@
 #using Ruby
 #to run: ruby number_guessing_game.rb
-debug = true
+debug = false #set true to debug
 puts "Guess the number between 1 and 100."
 
 number = rand(100)
