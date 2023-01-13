@@ -22,8 +22,6 @@ while guess != number
         puts "Your number is too high."
         puts "Try again: "
         guess = gets.chomp.to_i
-    else
-        break
     end
 end
 
