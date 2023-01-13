@@ -1,6 +1,4 @@
 #using Ruby
-#to run: ruby oop_number_guessing_game.rb
-
 class NumberGuessingGame
 
   def initialize(debug)
@@ -9,22 +7,18 @@ class NumberGuessingGame
 
   def game
     puts "Guess the number between 1 and 100."
-    @number = rand(100)
+    number = rand(100)
     if @debug
-        puts "Answer: #{@number}"
+        puts "Answer: #{number}"
     end
     print "Guess the number: "
     @guess = gets.chomp.to_i
-    check()
-  end
-
-  def check()
     @attempts = 1
-    while @guess != @number
+    while @guess != number
         @attempts +=1
-        if @guess < @number
+        if @guess < number
             too_low()
-        elsif @guess > @number
+        elsif @guess > number
             too_high()
         end
     end
