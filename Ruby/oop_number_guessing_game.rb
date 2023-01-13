@@ -38,8 +38,7 @@ class NumberGuessingGame
   end
 
   def win
-    win_game = "You guessed it right!"
-    puts win_game
+    puts "You guessed it right!"
     if @attempts == 1
         tries = "attempt"
     else
