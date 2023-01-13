@@ -25,18 +25,18 @@ defmodule NumberGuessingGame do
     end
   end
 
-  def too_low(answer,a) do
+  def too_low(answer,attempts) do
     IO.puts("Your number is too low.")
     {new_guess, _} = IO.gets("Try again: ") |> Integer.parse()
-    a = a + 1
-    guess_while(answer,new_guess,a)
+    attempts = attempts + 1
+    guess_while(answer,new_guess,attempts)
   end
 
-  def too_high(answer,a) do
+  def too_high(answer,attempts) do
     IO.puts("Your number is too high.")
     {new_guess, _} = IO.gets("Try again: ") |> Integer.parse()
-    a = a + 1
-    guess_while(answer,new_guess,a)
+    attempts = attempts + 1
+    guess_while(answer,new_guess,attempts)
   end
   
   def win(attempts) do
