@@ -1,5 +1,4 @@
 #using Ruby
-#to run: ruby number_guessing_game.rb
 debug = false #set true to debug
 puts "Guess the number between 1 and 100."
 
