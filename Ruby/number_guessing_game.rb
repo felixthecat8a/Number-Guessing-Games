@@ -27,10 +27,6 @@ end
 
 puts "You guessed it right!"
 
-if attempts == 1
-    tries = "attempt"
-else
-    tries = "attempts"
-end
+tries = attempts == 1 ?  "attempt" : "attempts"
 
 puts "It only took you #{attempts} #{tries}. :)"
