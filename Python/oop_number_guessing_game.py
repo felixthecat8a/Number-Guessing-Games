@@ -63,6 +63,7 @@ class Guess:
             if yes_or_no == "yes" or yes_or_no == "y":
                 self.attempts = 1
                 self.game()
+                break
             elif yes_or_no == "no" or yes_or_no == "n":
                 print("Goodbye :)")
                 i = 0
