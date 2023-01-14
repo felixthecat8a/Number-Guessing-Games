@@ -21,7 +21,6 @@ defmodule NumberGuessingGame do
         too_high(answer,attempts)
       number == answer ->
         win(attempts)
-        play_again()
     end
   end
 
@@ -42,6 +41,7 @@ defmodule NumberGuessingGame do
   def win(attempts) do
     IO.puts("You guessed it right!!")
     IO.puts("It only took you #{attempts} #{tries(attempts)}. :)")
+    play_again()
   end
 
   def tries(attempts) do
@@ -59,8 +59,10 @@ defmodule NumberGuessingGame do
         game()
       yes_or_no == "n" ->
         IO.puts("Goodbye :)")
+        exit(:normal)
       true ->
         IO.puts("Invalid Response - Exiting Game")
+        exit(:shutdown)
     end
   end
 
