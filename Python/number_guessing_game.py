@@ -23,10 +23,9 @@ while number!= guess:
     attempts = attempts + 1
     if guess < number:
         print(too_low)
-        guess = int(input(new_try))
     elif guess > number:
         print(too_high)
-        guess = int(input(new_try))
+    guess = int(input(new_try))
 
 if attempts == 1:
     tries = "attempt"
