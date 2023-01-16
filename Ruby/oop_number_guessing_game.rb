@@ -11,6 +11,10 @@ class NumberGuessingGame
     if @debug
         puts "Answer: #{number}"
     end
+    play()
+  end
+  
+  def play
     print "Guess the number: "
     @guess = gets.chomp.to_i
     @attempts = 1
