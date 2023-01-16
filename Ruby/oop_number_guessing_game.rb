@@ -30,7 +30,7 @@ class NumberGuessingGame
   def win
     puts "You guessed it right!"
     tries = @attempts == 1 ?  "attempt" : "attempts"
-    puts "It only took you #{@attempts} #{tries}. :)"
+    puts "It only took #{@attempts} #{tries}. :)"
     play_again()
   end
 
