@@ -16,17 +16,15 @@ while guess != number
     attempts +=1
     if guess < number
         puts "Your number is too low."
-        print "Try again: "
-        guess = gets.chomp.to_i
     elsif guess > number
         puts "Your number is too high."
-        print "Try again: "
-        guess = gets.chomp.to_i
     end
+    print "Try again: "
+    guess = gets.chomp.to_i
 end
 
 puts "You guessed it right!"
 
 tries = attempts == 1 ?  "attempt" : "attempts"
 
-puts "It only took you #{attempts} #{tries}. :)"
+puts "It only took #{attempts} #{tries}. :)"
