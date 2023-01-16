@@ -38,7 +38,7 @@ class NumberGuessingGame
     play_again()
   end
 
-  def play_again()
+  def play_again
     print "Do you want to play again? (y/n): "
     yes_or_no = gets.chomp.downcase
     case yes_or_no
