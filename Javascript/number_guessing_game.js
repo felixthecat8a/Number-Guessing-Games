@@ -6,7 +6,7 @@ const prompt = require('prompt-sync')({sigint: true});
 const randomNumber = Math.floor(Math.random() * 100) + 1
 console.log(`Answer: ${randomNumber}`) //for debugging
 
-let attempts = 0
+let attempts = 1
 
 console.log("Guess the number between 1 and 100.")
 let guess = prompt("Guess the number: ")
@@ -14,11 +14,10 @@ do {
     attempts++
     if (guess < randomNumber) {
         console.log("Your number is too low.")
-        guess = prompt("Try again: ")
     } else if (guess > randomNumber) {
         console.log("Your number is too high.")
-        guess = prompt("Try again: ")
-    } 
+    } else {break}
+    guess = prompt("Try again: ")
 } while (guess != randomNumber)
 
 console.log("You guessed it right!</div>")
