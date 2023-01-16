@@ -20,8 +20,8 @@ do {
     guess = prompt("Try again: ")
 } while (guess != randomNumber)
 
-console.log("You guessed it right!</div>")
-console.log(`It only took you ${attempts} ${tries(attempts)}.`)
+console.log("You guessed it right!")
+console.log(`It only took ${attempts} ${tries(attempts)}.`)
     
 function tries(attempts) {
     if (attempts === 1) {
