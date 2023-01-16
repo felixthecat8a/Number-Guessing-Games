@@ -15,26 +15,16 @@ class NumberGuessingGame
     @guess = gets.chomp.to_i
     @attempts = 1
     while @guess != number
-        @attempts +=1
-        if @guess < number
-            too_low()
-        elsif @guess > number
-            too_high()
-        end
+      @attempts +=1
+      if @guess < number
+        puts "Your number is too low."
+      elsif @guess > number
+        puts "Your number is too high."
+      end
+      print "Try again: "
+      @guess = gets.chomp.to_i
     end
     win()
-  end
-
-  def too_low
-    puts "Your number is too low."
-    print "Try again: "
-    @guess = gets.chomp.to_i
-  end
-
-  def too_high
-    puts "Your number is too high."
-    print "Try again: "
-    @guess = gets.chomp.to_i
   end
 
   def win
