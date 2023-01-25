@@ -40,7 +40,7 @@ defmodule NumberGuessingGame do
   
   def win(attempts) do
     IO.puts("You guessed it right!!")
-    IO.puts("It only took you #{attempts} #{tries(attempts)}. :)")
+    IO.puts("It only took #{attempts} #{tries(attempts)}. :)")
     play_again()
   end
 
