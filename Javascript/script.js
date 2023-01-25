@@ -20,7 +20,7 @@ function playGame() {
           attempt.innerHTML = `<h3>Attempt number ${attempts}.</h3>`
       } else {
           result.innerHTML = "<div class='right'>You guessed it right!</div>"
-          attempt.innerHTML = `<h3>It only took you ${attempts} ${attemptsMessage()}.</h3>`
+          attempt.innerHTML = `<h3>It only took ${attempts} ${attemptsMessage()}.</h3>`
           reset.innerHTML = "<button type='reset' onclick='resetGame()'>Play Again?</button>" 
       }
   }
