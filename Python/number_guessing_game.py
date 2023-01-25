@@ -34,4 +34,4 @@ else:
 
 win_game = "You guessed it right!!"
 print(win_game)
-print(f"It only took you {attempts} {tries}. :)")
+print(f"It only took {attempts} {tries}. :)")
