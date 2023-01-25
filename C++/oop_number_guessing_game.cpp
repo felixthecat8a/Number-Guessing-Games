@@ -67,7 +67,7 @@ class NumberGuessingGame {
 		} else {
 			tries = "attempts. :)";
 		}
-		cout << correct << "It only took you " << attempts << tries << endl;
+		cout << correct << "It only took " << attempts << tries << endl;
 	}
 
 	void playAgain() {
