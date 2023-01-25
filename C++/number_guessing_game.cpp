@@ -42,7 +42,7 @@ int main()
 	
 	string tries = (attempts == 1) ? " attempt. :)" : " attempts. :)";
 
-	cout << correct << "It only took you " << attempts << tries << endl;
+	cout << correct << "It only took " << attempts << tries << endl;
 	
 	system("pause>0");
 }
