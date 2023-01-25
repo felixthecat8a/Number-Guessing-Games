@@ -33,7 +33,7 @@ class Guess:
 
     def win(self):
         print(self.correct)
-        print(f"It only took you {self.attempts} {self.tries()}. :)")
+        print(f"It only took {self.attempts} {self.tries()}. :)")
 
     def tries(self):
         if self.attempts == 1:
