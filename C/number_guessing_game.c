@@ -35,9 +35,9 @@ int main()
 	} while (guess != answer);
 
 	if (attempts == 1) {
-		printf("You guessed it right!!\nIt only took you %d attempt. :)\n",attempts);
+		printf("You guessed it right!!\nIt only took %d attempt. :)\n",attempts);
 	}else{
-		printf("You guessed it right!!\nIt only took you %d attempts. :)\n",attempts);
+		printf("You guessed it right!!\nIt only took %d attempts. :)\n",attempts);
 	}
 
 	return 0;
