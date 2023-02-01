@@ -13,8 +13,6 @@ class Guess:
         self.correct = "You guessed it right!!"
 
     def start(self):
-        start_game = "Guess the number between 1 and 100."
-        print(start_game)
         self.answer = int(random.randrange(1,100))
         if self.debug:
             print("the number is {:d}" .format(self.answer))
