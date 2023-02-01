@@ -29,9 +29,6 @@ class Guess:
             elif self.guess > self.answer: 
                 print(self.too_high)
             self.guess = int(input(self.new_try))
-        self.win()
-
-    def win(self):
         print(self.correct)
         print(f"It only took {self.attempts} {self.tries()}. :)")
 
