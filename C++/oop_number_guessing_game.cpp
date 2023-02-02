@@ -24,14 +24,14 @@ class NumberGuessingGame {
 		srand(time(0));
 		randNum = (rand() % MAX) + MIN;
 		if (debug) {
-			cout << "\nAnswer: " << randNum << endl;
+			cout << "Answer: " << randNum << endl;
 		}
 	}
 
 	void startGame() {
 		cout << gameIntro << endl;
 		createAnswer();
-		cout << firstGuess << endl;
+		cout << firstGuess;
 	}
 
 	void playGame() {
@@ -42,36 +42,33 @@ class NumberGuessingGame {
 
 	void checkAnswer() {
 		do {
-			if (attempts == 10) {
-				cout << "Sorry, you've reached the limit of 10 tries.";
-				playAgain();
-			}
+			checkLimit();
 			cin >> guessNum;
 			attempts++;
 			if (guessNum < randNum)
-				low();
+				cout << tooLow;
 			else if (guessNum > randNum)
-				high();
+				cout << tooHigh;
 		} while (guessNum != randNum);
 		win();
-	}
-
-	void low() {
-		cout << tooLow << endl;
-	}
-
-	void high() {
-		cout << tooHigh << endl;
 	}
 
 	void win() {
 		string tries;
 		if (attempts == 1) {
-			tries = "attempt. :)";
+			tries = " attempt. :)";
 		} else {
-			tries = "attempts. :)";
+			tries = " attempts. :)";
 		}
 		cout << correct << "It only took " << attempts << tries << endl;
+	}
+
+	void checkLimit() {
+		if (attempts == 10) {
+			std::cout << "Sorry, you've reached the limit of 10 tries." << std::endl;
+			std::cout << "The number was " << randNum << "." << std::endl;
+			playAgain();
+		}
 	}
 
 	void playAgain() {
