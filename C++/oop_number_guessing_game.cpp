@@ -11,7 +11,7 @@ class NumberGuessingGame {
 	const int MAX = 100;
 	int randNum, guessNum;
 	int attempts = 0;
-	const string gameIntro = "Guess the number between 1 and 100.";
+	const string gameIntro = "Guess the number between 1 and 100 in less than ten attempts.";
 	const string firstGuess = "Guess the number: ";
 	const string tooLow = "Your number is too low.\nTry Again: ";
 	const string tooHigh = "Your number is too high.\nTry Again: ";
@@ -42,6 +42,10 @@ class NumberGuessingGame {
 
 	void checkAnswer() {
 		do {
+			if (attempts == 10) {
+				cout << "Sorry, you've reached the limit of 10 tries.";
+				playAgain();
+			}
 			cin >> guessNum;
 			attempts++;
 			if (guessNum < randNum)
