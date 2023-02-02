@@ -1,11 +1,10 @@
-#using Python
 import random
 
 class Guess:
     def __init__(self):
         self.debug = False #set True to debug
         self.attempts = 1
-        self.start_game = "Guess the number between 1 and 100."
+        self.start_game = "Guess the number between 1 and 100 in ten attemps or less."
         self.first_try = "Guess the number: "
         self.new_try = "Try again: "
         self.too_low = "Your number is too low."
@@ -21,6 +20,10 @@ class Guess:
 
     def check(self):
         while self.answer!= self.guess:
+            if self.attempts >= 10:
+                print("Sorry, you've reached the limit of 10 tries.")
+                print(f"The number was {self.answer}")
+                return
             self.attempts = self.attempts + 1
             if self.guess < self.answer: 
                 print(self.too_low)
