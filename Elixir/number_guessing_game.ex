@@ -2,7 +2,7 @@
 defmodule NumberGuessingGame do
   def guess() do
     debug = false #set true for debugging
-    IO.puts("Guess a number between 1 and 100.")
+    IO.puts("Guess a number between 1 and 100 in 10 tries or less.")
     random = Enum.random(1..100)
     if debug do
       IO.puts("Answer: #{random}")
@@ -14,6 +14,7 @@ defmodule NumberGuessingGame do
   end
 
   def guess_while(answer,number,attempts) do
+    gameLimit(answer,number,attempts)
     cond do
       number < answer ->
         too_low(answer,attempts)
@@ -48,6 +49,13 @@ defmodule NumberGuessingGame do
     case 1 do
       ^attempts -> :try
       _ -> :tries
+    end
+  end
+  
+  def gameLimit(answer,number,attempts) do
+    if attempts >= 10 && number != answer do
+      IO.puts("Sorry, you have reached the limit of 10 attempts")
+      play_again()
     end
   end
   
