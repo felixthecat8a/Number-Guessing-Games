@@ -65,8 +65,8 @@ class NumberGuessingGame {
 
 	void checkLimit() {
 		if (attempts == 10) {
-			std::cout << "Sorry, you've reached the limit of 10 tries." << std::endl;
-			std::cout << "The number was " << randNum << "." << std::endl;
+			cout << "Sorry, you've reached the limit of 10 tries." << endl;
+			cout << "The number was " << randNum << "." << endl;
 			playAgain();
 		}
 	}
