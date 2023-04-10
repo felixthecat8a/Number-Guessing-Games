@@ -1,8 +1,7 @@
 //Using C++
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <ctime>
+#include <random>
 using namespace std;
 
 int main()
@@ -13,8 +12,11 @@ int main()
 	int attempts = 0;
 	bool debug = false; //set true to debug
 	
-	srand(time(0));
-	answer = (rand() % MAX) + MIN;
+	/*Mersenne Twister random number engine*/ 
+	std::random_device rd; //seed
+	std::mt19937 rng(rd()); 
+	std::uniform_int_distribution<int> dist(MIN, MAX);
+	answer = dist(rng);
 	if (debug) {
 		cout << "Answer: " << answer << endl;
 	}
