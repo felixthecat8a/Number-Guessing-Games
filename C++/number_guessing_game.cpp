@@ -1,50 +1,45 @@
 //Using C++
-#include <iostream>
-#include <string>
-#include <random>
+#include <iostream> // for std::cout & std::cin
+#include <string> // for std::string & std::to_string()
+#include <cstdlib> // for rand() & srand()
+#include <ctime> // for time()
 using namespace std;
 
-int main()
-{
+int main() {
 	const int MIN = 1;
 	const int MAX = 100;
-	int answer, guess;
+	int randNum, guessNum;
 	int attempts = 0;
-	bool debug = false; //set true to debug
+	bool debug = true; //set true to debug
 	
-	/*Mersenne Twister random number engine*/ 
-	std::random_device rd; //seed
-	std::mt19937 rng(rd()); 
-	std::uniform_int_distribution<int> dist(MIN, MAX);
-	answer = dist(rng);
+	srand(time(0));
+	randNum = (rand() % MAX) + MIN;
 	if (debug) {
-		cout << "Answer: " << answer << endl;
+		cout << "Answer: " << randNum << endl;
 	}
 	
-	const char startGame[] = "Guess the number between 1 and 100.\n";
+	const char startGame[] = "Guess the number between 1 and 100.";
 	const char firstGuess[] = "Guess the number: ";
+
+    cout << startGame << endl;
+	cout << firstGuess;
 	
 	const string tooLow = "Your number is too low.\nTry Again: ";
 	const string tooHigh = "Your number is too high.\nTry Again: ";
 	const string correct = "You guessed it right!!\n";
 
-    	cout << startGame << endl;
-	cout << firstGuess;
-
 	do {
-		cin >> guess;
-		attempts++;
+		cin >> guessNum;
+        attempts++;
+        if (guessNum < randNum)
+            cout << tooLow;
+        else if (guessNum > randNum)
+            cout << tooHigh;
+    } while (guessNum != randNum);
 
-		if (guess < answer)
-			cout << tooLow;
-		else if (guess > answer)
-			cout << tooHigh;
-		
-	} while (guess != answer);
-	
 	string tries = (attempts == 1) ? " attempt. :)" : " attempts. :)";
 
-	cout << correct << "It only took " << attempts << tries << endl;
-	
+	cout << correct << "It only took you " << attempts << tries << endl;
+
 	system("pause>0");
 }
