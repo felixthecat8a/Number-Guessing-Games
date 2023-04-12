@@ -5,15 +5,17 @@
 #include <ctime> // for time()
 using namespace std;
 
+#define MIN 1
+#define MAX 100
+
 class NumberGuessingGame {
 	private:
-	const int MIN = 1;
-	const int MAX = 100;
 	int randNum, guessNum;
 	int attempts = 0;
 	int maxAttempts = 10;
-	const string attemptIntro = " in " + std::to_string(maxAttempts) + " attempts or less.";
-	const string gameIntro = "Guess the number between 1 and 100" + attemptIntro;
+	const std::string startIntro = std::to_string(MIN) + " and " + std::to_string(MAX);
+	const std::string attemptIntro = " in " + std::to_string(maxAttempts) + " attempts or less.";
+	const std::string gameIntro = "Guess the number between " + startIntro + attemptIntro;
 	const string firstGuess = "Guess the number: ";
 	const string tooLow = "Your number is too low.\nTry Again: ";
 	const string tooHigh = "Your number is too high.\nTry Again: ";
