@@ -1,48 +1,53 @@
 #using Elixir
-defmodule NumberGuessingGame do
-  def guess() do
-    debug = false #set true for debugging
-    IO.puts("Guess a number between 1 and 100 in 10 tries or less.")
-    random = Enum.random(1..100)
+defmodule NumberGame do
+
+  def start_game() do
+    debug = true #set true for debugging
+    IO.puts("Guess the number between 1 and 100.")
+    min = 1
+    max = 100
+    answer = Enum.random(min..max)
     if debug do
-      IO.puts("Answer: #{random}")
+      IO.puts("Answer: #{answer}")
     end
-    prompt_guess = "Guess the number: "
-    {first_guess, _} = IO.gets(prompt_guess) |> Integer.parse()
     attempts = 1
-    guess_while(random,first_guess,attempts)
+    prompt = "Guess the number: "
+    game_loop(answer, attempts, prompt)
   end
 
-  def guess_while(answer,number,attempts) do
-    gameLimit(answer,number,attempts)
-    cond do
-      number < answer ->
-        too_low(answer,attempts)
-      number > answer ->
-        too_high(answer,attempts)
-      number == answer ->
+  def game_loop(answer, attempts, prompt) do
+    case IO.gets(prompt) |> String.trim() |> Integer.parse() do
+      {number, _} when number < answer ->
+        too_low(answer, attempts)
+      {number, _} when number > answer ->
+        too_high(answer, attempts)
+      {number, _} when number == answer ->
         win(attempts)
+      _ ->
+        IO.puts("Invalid input. Please enter a valid number.")
+        prompt = "Try again: "
+        game_loop(answer, attempts, prompt)
     end
+    play_again()
   end
 
-  def too_low(answer,attempts) do
+  def too_low(answer, attempts) do
     IO.puts("Your number is too low.")
-    {new_guess, _} = IO.gets("Try again: ") |> Integer.parse()
+    prompt = "Try again: "
     attempts = attempts + 1
-    guess_while(answer,new_guess,attempts)
+    game_loop(answer, attempts, prompt)
   end
 
-  def too_high(answer,attempts) do
+  def too_high(answer, attempts) do
     IO.puts("Your number is too high.")
-    {new_guess, _} = IO.gets("Try again: ") |> Integer.parse()
+    prompt = "Try again: "
     attempts = attempts + 1
-    guess_while(answer,new_guess,attempts)
+    game_loop(answer, attempts, prompt)
   end
-  
+
   def win(attempts) do
     IO.puts("You guessed it right!!")
-    IO.puts("It only took #{attempts} #{tries(attempts)}. :)")
-    play_again()
+    IO.puts("It only took you #{attempts} #{tries(attempts)}. :)")
   end
 
   def tries(attempts) do
@@ -51,20 +56,13 @@ defmodule NumberGuessingGame do
       _ -> :tries
     end
   end
-  
-  def gameLimit(answer,number,attempts) do
-    if attempts >= 10 && number != answer do
-      IO.puts("Sorry, you have reached the limit of 10 attempts")
-      play_again()
-    end
-  end
-  
+
   def play_again() do
-    prompt_question = "Do you want to play again? (y/n): "
+    prompt_question = "\nDo you want to play again? (y/n): "
     yes_or_no = IO.gets(prompt_question) |> String.trim()
     cond do
       yes_or_no == "y" ->
-        game()
+        start_game()
       yes_or_no == "n" ->
         IO.puts("Goodbye :)")
         exit(:normal)
@@ -73,7 +71,6 @@ defmodule NumberGuessingGame do
         exit(:shutdown)
     end
   end
-
 end
 
-NumberGuessingGame.guess()
+NumberGame.start_game()
