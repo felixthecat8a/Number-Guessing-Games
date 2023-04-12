@@ -2,7 +2,7 @@
 defmodule NumberGame do
 
   def start_game() do
-    debug = true #set true for debugging
+    debug = false #set true for debugging
     IO.puts("Guess the number between 1 and 100.")
     min = 1
     max = 100
