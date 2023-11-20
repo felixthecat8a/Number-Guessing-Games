@@ -55,7 +55,6 @@ class Guess:
                 break
             elif yes_or_no == "no" or yes_or_no == "n":
                 print("Goodbye :)")
-                i = 0
                 break
             else: 
                 print('Invalid Response - Enter y or n.')
