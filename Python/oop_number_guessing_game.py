@@ -2,7 +2,7 @@ import random
 
 class NumberGuessingGame:
     def __init__(self):
-        self.debug = True #set True to debug
+        self.debug = False #set True to debug
         self.attempts = 0
         self.maxAttempts = 5
         
