@@ -1,48 +1,51 @@
 import random
 
-class Guess:
+class NumberGuessingGame:
     def __init__(self):
-        self.debug = False #set True to debug
-        self.attempts = 1
-        self.start_game = "Guess the number between 1 and 100 in ten attemps or less."
-        self.first_try = "Guess the number: "
-        self.new_try = "Try again: "
-        self.too_low = "Your number is too low."
-        self.too_high = "Your number is too high."
-        self.correct = "You guessed it right!!"
-
+        self.debug = True #set True to debug
+        self.attempts = 0
+        self.maxAttempts = 5
+        
     def start(self):
-        self.answer = int(random.randrange(1,100))
+        attemptPrompt = ("in {:d} tries or less." .format(self.maxAttempts))
+        print(f"Guess the number between 1 and 100 {attemptPrompt}")
+        MIN_NUMBER = 1
+        MAX_NUMBER = 100
+        self.answer = int(random.randrange(MIN_NUMBER,MAX_NUMBER))
         if self.debug:
-            print("the number is {:d}" .format(self.answer))
-        print(self.start_game)
-        self.guess = int(input(self.first_try))
+            print(f"Answer: {self.answer}")
+        self.game()
 
-    def check(self):
-        while self.answer!= self.guess:
-            if self.attempts >= 10:
-                print("Sorry, you've reached the limit of 10 tries.")
+    def game(self):
+        self.guess = int(input("Guess the number: "))
+        self.play()
+        self.play_again()
+
+    def play(self):
+        self.attempts += 1
+        while self.guess != self.answer:
+            if self.attempts >= self.maxAttempts:
+                print(f"Sorry, you've reached {self.maxAttempts} tries.")
                 print(f"The number was {self.answer}")
                 return
-            self.attempts = self.attempts + 1
-            if self.guess < self.answer: 
-                print(self.too_low)
-            elif self.guess > self.answer: 
-                print(self.too_high)
-            self.guess = int(input(self.new_try))
-        print(self.correct)
+            self.check()
+            self.guess = int(input("Try again: "))
+        print("You guessed it right!!")
         print(f"It only took {self.attempts} {self.tries()}. :)")
+
+    def check(self):
+        self.attempts += 1
+        if self.guess < self.answer:
+            print("Your number is too low.")
+        elif self.guess > self.answer:
+            print("Your number is too high.")
+        return
 
     def tries(self):
         if self.attempts == 1:
             return "try"
         else:
-            return"tries"
-
-    def game(self):
-        self.start()
-        self.check()
-        self.play_again()
+            return "tries"
 
     def play_again(self):
         i = 0
@@ -50,8 +53,8 @@ class Guess:
             prompt_message = "Do you want to play again? (y/n): "
             yes_or_no = input(prompt_message).lower()
             if yes_or_no == "yes" or yes_or_no == "y":
-                self.attempts = 1
-                self.game()
+                self.attempts = 0
+                self.start()
                 break
             elif yes_or_no == "no" or yes_or_no == "n":
                 print("Goodbye :)")
@@ -63,7 +66,6 @@ class Guess:
                 continue
         if i > 0:
             print("Too Many Invalid Responses - Exiting Program")
-                
+
 if __name__ == '__main__':
-    play = Guess()
-    play.game()
+    NumberGuessingGame().start()
