@@ -14,10 +14,15 @@ class NumberGuessingGame {
 	const int MAX_ATTEMPTS = 5;
 	int randNum, guessNum;
 	int attempts = 0;
+	std::default_random_engine generator;
 
 	public:
+	NumberGuessingGame() {
+		std::random_device rd;
+		generator.seed(rd());
+	}
+
 	void createRandomNumber() {
-		std::default_random_engine generator;
 		std::uniform_int_distribution<int> dist(MIN, MAX);
 		randNum = dist(generator);
 		#ifdef DEBUG
