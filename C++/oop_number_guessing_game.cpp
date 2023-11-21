@@ -6,7 +6,7 @@
 #include <cstdlib> // for std::exit()
 #include <random> // for random number generation
 
-#define DEBUG
+//#define DEBUG // uncomment to help with debugging
 
 class NumberGuessingGame {
 	private:
@@ -67,14 +67,14 @@ class NumberGuessingGame {
 	}
 
 	void checkInput() {
+    	int invalidInputCount = 0;
 		while (std::cin.fail()) {
+			invalidInputCount++;
+			if (invalidInputCount >= 3) {
+				std::cout << "Invalid Inputs Exceeded - Exiting Game" << std::endl;
+				std::exit(0);
+			}
 			std::cout << "Invalid input. Please enter an integer.\nTry Again: ";
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> guessNum;
-		}
-		while (guessNum < MIN || guessNum > MAX) {
-			std::cout << "Invalid input. Please enter a number in range.\nTry Again: ";
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cin >> guessNum;
@@ -103,8 +103,6 @@ class NumberGuessingGame {
 				if (invalidInputCount >=3)
 				{
 					std::cout << "Invalid Inputs Exceeded - Exiting Game" << std::endl;
-					std::cin.ignore();
-					std::cin.get();
 					std::exit(0);
 				}
 				std::cout << "Invalid input. Please enter 'y' or 'n'.\n(y/n): ";
