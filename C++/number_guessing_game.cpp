@@ -1,6 +1,6 @@
 //Using C++
 #include <iostream> // for std::cout & std::cin
-#include <string> // for std::string & std::to_string()
+#include <string> // for std::string
 #include <cstdlib> // for rand() & srand()
 #include <ctime> // for time()
 using namespace std;
@@ -17,29 +17,23 @@ int main() {
 	if (debug) {
 		cout << "Answer: " << randNum << endl;
 	}
-	
-	const char startGame[] = "Guess the number between 1 and 100.";
-	const char firstGuess[] = "Guess the number: ";
 
-    cout << startGame << endl;
-	cout << firstGuess;
-	
-	const string tooLow = "Your number is too low.\nTry Again: ";
-	const string tooHigh = "Your number is too high.\nTry Again: ";
-	const string correct = "You guessed it right!!\n";
+    	cout << "Guess the number between 1 and 100." << endl;
+	cout <<  "Guess the number: ";
 
 	do {
 		cin >> guessNum;
-        attempts++;
-        if (guessNum < randNum)
-            cout << tooLow;
-        else if (guessNum > randNum)
-            cout << tooHigh;
-    } while (guessNum != randNum);
+        	attempts++;
+        	if (guessNum < randNum)
+            		cout << "Your number is too low.\nTry Again: ";
+        	else if (guessNum > randNum)
+            		cout << "Your number is too high.\nTry Again: ";
+    	} while (guessNum != randNum);
 
 	string tries = (attempts == 1) ? " attempt. :)" : " attempts. :)";
 
-	cout << correct << "It only took you " << attempts << tries << endl;
+	cout << "You guessed it right!!" << endl;
+	cout << "It only took " << attempts << tries << endl;
 
 	system("pause>0");
 }
