@@ -30,15 +30,11 @@ class NumberGuessingGame {
 		#endif
 	}
 
-	void startGame() {
+	void playGame() {
 		std::string intro = std::to_string(MAX_ATTEMPTS) + " attempts or less.";
 		std::cout << "Guess the number between 1 and 100 in " << intro << std::endl;
 		createRandomNumber();
 		std::cout << "\nGuess the number: ";
-		playGame();
-	}
-
-	void playGame() {
 		do {
 			attempts++;
 			checkLimit();
@@ -91,7 +87,7 @@ class NumberGuessingGame {
 			if (playAgainInput == 'y') {
 				attempts = 0;
 				std::cin.clear();
-				startGame();
+				playGame();
 			}
 			else if (playAgainInput == 'n') {
 				std::cout << "Goodbye. :)" << std::endl;
@@ -100,8 +96,7 @@ class NumberGuessingGame {
 				std::exit(0);
 			} else {
 				invalidInputCount++;
-				if (invalidInputCount >=3)
-				{
+				if (invalidInputCount >=3) {
 					std::cout << "Invalid Inputs Exceeded - Exiting Game" << std::endl;
 					std::exit(0);
 				}
@@ -113,7 +108,7 @@ class NumberGuessingGame {
 
 int main() {
 	NumberGuessingGame gameObj;
-	gameObj.startGame();
+	gameObj.playGame();
 	//system("pause>0");
-    return 0;
+	return 0;
 }
