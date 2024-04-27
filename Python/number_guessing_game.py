@@ -1,16 +1,14 @@
 #using Python
 import random
 
-start_game = "Guess the number between 1 and 100."
-print(start_game)
+print("Guess the number between 1 and 100.")
 
 number = random.randrange(1,100)
 
 debug = True #set True to debug
 if debug: print("Answer: {:d}" .format(number)) 
 
-first_try = "Guess the number: "
-guess = int(input(first_try))
+guess = int(input("Guess the number: "))
 
 attempts = 1
 
